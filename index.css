@@ -154,17 +154,18 @@ body {
 .window_1 {
     margin:30px;
     padding: 30px;
-    height: 600px;
+    height: auto;
     border-radius: 12px;
     background-image: url('gg/picture/91406172753.jpg');
     background-repeat: no-repeat;
-    background-size:cover ;
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content:center;
     border: 1px solid;
     border-color: rgb(168, 163, 163);
-
+    transition: background-image 1s ease-in-out; 
     
 }
 .window_1 h1{
@@ -392,6 +393,7 @@ transition: transform 0.3s ease;
     border-radius: 12px;
     gap: 15px;
     padding: 20px;
+    transition: background-color 1s ease-in-out;
 }
 .ques {
     display: flex;

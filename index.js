@@ -13,8 +13,7 @@ if (loginBtn) {
     alert('👤 You will be directed to the login page shortly.');
   });
 }
-
-// ✅ Search for zip code
+    // ✅ Search for zip code
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const result = document.getElementById('result');
@@ -37,6 +36,31 @@ categoryButtons.forEach(button => {
     alert(`🍽️ Showing restaurants in the "${button.textContent}" category coming soon!`);
   });
 });
+/*change color */
+const orderInfo = document.querySelector(".order_info");
+const buttons = document.querySelectorAll(".butt");
+let isWhite = true;
+
+setInterval(() => {
+  if (isWhite) {
+    orderInfo.style.backgroundColor = "rgba(3, 8, 31, 1)";
+    orderInfo.style.color = "white";
+    buttons.forEach(btn => {
+      btn.style.color = "white";     
+      btn.style.borderColor = "white";
+    });
+  } else {
+    orderInfo.style.backgroundColor = "white";
+    orderInfo.style.color = "black";
+    buttons.forEach(btn => {
+      btn.style.color = "black";     
+      btn.style.borderColor = "black";
+    });
+  }
+  isWhite = !isWhite;
+}, 5000);
+
+
 
 // ✅ Frequently Asked Questions (FAQ) buttons
 const faqBtns = document.querySelectorAll('.ques button');
@@ -51,14 +75,13 @@ document.getElementById("subscribeBtn").addEventListener("click", function() {
   const emailInput = document.getElementById("searchInput").value.trim();
   const message = document.getElementById("message");
 
-  // تعبير يتحقق من صحة الإيميل
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (emailPattern.test(emailInput)) {
-    message.textContent = "✅ تم الاشتراك بنجاح!";
+    message.textContent = "✅ You have successfully subscribed!";
     message.style.color = "green";
   } else {
-    message.textContent = "❌ البريد الإلكتروني غير صحيح، حاول مرة أخرى.";
+    message.textContent = "❌ Invalid email, try again.";
     message.style.color = "red";
   }
 });
@@ -68,7 +91,7 @@ document.getElementById("subscribeBtn").addEventListener("click", function() {
 const footerBtns = document.querySelectorAll('.last_bar button');
 footerBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    alert(`📄 سيتم فتح صفحة "${btn.textContent}" قريباً.`);
+    alert(`📄 The "${btn.textContent}" page will be open soon.`);
   });
 });
 
@@ -79,7 +102,6 @@ footerBtns.forEach(btn => {
 
     menuBtn.addEventListener('click', function() {
       menu.classList.toggle('active');
-      console.log("✅ الزر يعمل!");
     });
   });
 
