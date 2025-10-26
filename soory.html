@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enter Your Post Code</title>
+  <style>
+    /* --- RESET --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* --- MODAL BOX --- */
+    .modal {
+      display: flex;
+      flex-direction: row;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 700px;
+      max-width: 95%;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    /* --- IMAGE SIDE --- */
+  .modal {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 12px;
+  width: 700px;
+  max-width: 95%;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  position: relative;
+  min-height: 400px; /* ضروري باش الصورة تبان */
+}
+
+.modal .image {
+  flex: 1;
+  background-image: url('MRA2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  object-fit: cover;
+   width: 100%;
+    
+}
+
+/* الخط البرتقالي الفاصل */
+.modal .image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #f78b1f;
+}
+
+/* في الهاتف */
+@media (max-width: 700px) {
+  .modal {
+    flex-direction: column;
+  }
+  .modal .image {
+    height: 200px; /* باش تبان الصورة حتى في الموبايل */
+  }
+  .modal .image::after {
+    display: none;
+  }
+}
+
+
+    /* --- CONTENT SIDE --- */
+    .modal .content {
+      flex: 1.1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #0a0a0a;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    h3 span {
+      color: #E12B25;
+    }
+    h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+
+h3 span {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+h3 span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* باش يجي الخط تحت كامل النص */
+  height: 3px;
+  background-color:#E12B25;
+  border-radius: 2px;
+}
+
+
+    p {
+      color: #555;
+      margin-bottom: 1.2rem;
+      
+    }
+
+    .input-box {
+      display: flex;
+      margin-bottom: 1.2rem;
+      
+    }
+
+    .input-box input {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 20px  0px 0px 20px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .input-box button {
+      background:black;
+      color: white;
+      border: none;
+      padding: 0 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0 20px 20px 0px;
+      cursor: pointer;
+      transition: 0.3s;
+      
+       
+    }
+
+    .input-box button:hover {
+      background: #d6730f;
+    }
+
+    .divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color:black;
+  margin: 10px 0;
+  font-weight: 500;
+  gap: 10px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #f78b1f; 
+  opacity: 0.6;
+}
+
+
+    .collect-link {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .collect-link a {
+      color: #03081F;
+      font-weight: 600;
+      text-decoration: none;
+      width: 200px;
+    }
+
+    .collect-link a:hover {
+      text-decoration: underline;
+    }
+    .soory1{
+        color: #E12B25;
+        align-content: center;
+        margin-left: 20px;
+        size: 30px;
+        font-weight: 600;
+        
+
+
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 700px) {
+      .modal {
+        flex-direction: column;
+        width: 90%;
+      }
+      .modal .image {
+        height: 200px;
+      }
+      .modal .content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="modal">
+    <div class="image"> <img src="" alt=""></div>
+
+    <div class="content">
+      <button class="close-btn" onclick="closeModal()">×</button>
+
+      <h2>Please Enter Your </h2>
+      <h3> <span>Post Code</span> </h3>
+      <br>
+      <p>To start placing delivery order, please <br> enter your full postcode here</p>
+
+      <div class="input-box">
+        <input type="text" id="postcode" placeholder="EN4 9QF" />
+        <button onclick="findPostcode()">Find</button>
+      </div>
+      <div class="soory1">Sorry, we don’t do delivery to your area.</div>
+
+      <div class="divider">or</div>
+      <div class="collect-link">
+        <a href="#">I want to come and collect</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function findPostcode() {
+      const postcode = document.getElementById('postcode').value.trim();
+      if (postcode === '') {
+        alert('Please enter your postcode!');
+      } else {
+        alert('Searching for postcode: ' + postcode);
+      }
+    }
+
+    function closeModal() {
+      document.querySelector('.modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
