@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Deal 1</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      max-width: 95%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header {
+      background-image: url('PIZZAKBIRA7.png'); /* 🔸 ضعي هنا صورة الخلفية */
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      background-color: #ff4b00;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .content h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .pizza-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    /* لما تكون مختارة */
+    .pizza-item.active {
+      background-color: #0b0d21;
+      color: white;
+      box-shadow: 0 0 0 2px #007bff inset;
+    }
+
+    .pizza-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pizza-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ddd; /* 🔸 مكان الصورة */
+    }
+
+    .pizza-name {
+      font-weight: bold;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-controls button {
+      border: none;
+      background-color: #e4e4e4;
+      font-size: 18px;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .qty-controls button:hover {
+      background-color: #ccc;
+    }
+
+    .total-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      background-color: #FC8A06CC;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      color:white;
+      width: 50%;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .back-btn {
+      background: none;
+      color: black;
+      text-decoration: underline;
+    }
+
+    .next-btn {
+      background-color: #00b14f;
+      color: white;
+    }
+
+    .next-btn:hover {
+      background-color: #009944;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: 90%;
+      }
+
+      .pizza-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .qty-controls {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <button class="close-btn" onclick="closeMenu()">✕</button>
+    </div>
+
+    <div class="content">
+      <p><strong>Special Offers</strong> > Meal Deal 1</p>
+      <h3>Please select your first Pizza</h3>
+
+      <div class="pizza-item">
+        <div class="pizza-info">
+          <img src="PIZZA1.png" alt="">
+          <span class="pizza-name">Margherita</span>
+        </div>
+        <div class="qty-controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>1</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="pizza-item">
+        <div class="pizza-info">
+          <img src="PIZZA2.png" alt="">
+          <span class="pizza-name">Polo</span>
+        </div>
+        <div class="qty-controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>1</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="pizza-item">
+        <div class="pizza-info">
+          <img src="pizza3.png" alt="">
+          <span class="pizza-name">Meat Fiest</span>
+        </div>
+        <div class="qty-controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>1</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="pizza-item">
+        <div class="pizza-info">
+          <img src="PIZZA4.png" alt="">
+          <span class="pizza-name">Hawaiian</span>
+        </div>
+        <div class="qty-controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>2</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="pizza-item">
+        <div class="pizza-info">
+          <img src="PIZZA5.png" alt="">
+          <span class="pizza-name">Toscana</span>
+        </div>
+        <div class="qty-controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>1</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="total-section">
+        <span>Total to pay</span>
+        <span>£127.90</span>
+      </div>
+
+      <p style="font-size: 12px; text-align: right; color: gray;">Delivery & Tax will be calculated in the next step</p>
+
+      <div class="actions">
+        <button class="btn back-btn">Take me back</button>
+        <button class="btn next-btn">Next Step</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // تغيير الكمية
+    function changeQty(btn, change) {
+      const span = btn.parentElement.querySelector('span');
+      let value = parseInt(span.textContent) + change;
+      if (value < 1) value = 1;
+      span.textContent = value;
+    }
+
+    // إغلاق القائمة
+    function closeMenu() {
+      document.querySelector('.container').style.display = 'none';
+    }
+
+    // 🔹 عند الضغط على أي بيتزا: تحديدها فقط
+    const pizzas = document.querySelectorAll('.pizza-item');
+    pizzas.forEach(pizza => {
+      pizza.addEventListener('click', () => {
+        pizzas.forEach(p => p.classList.remove('active'));
+        pizza.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
